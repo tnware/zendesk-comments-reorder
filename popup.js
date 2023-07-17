@@ -1,21 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  var toggle = document.getElementById("toggle");
-
-  // Get the current toggle value from Chrome storage
-  chrome.storage.sync.get("autoProcessEnabled", function (data) {
-    toggle.checked = data.autoProcessEnabled;
-  });
-
-  // Handle toggle changes
-  toggle.addEventListener("change", function () {
-    // Save the toggle value to Chrome storage
-    chrome.storage.sync.set({ autoProcessEnabled: toggle.checked });
-
-    // Send a message to the background script to enable/disable the automatic process
-    chrome.runtime.sendMessage({ autoProcessEnabled: toggle.checked });
-  });
-});
-
 document.getElementById("change-dom").addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
@@ -26,15 +8,6 @@ document.getElementById("change-dom").addEventListener("click", async () => {
 });
 
 function changeDom() {
-  // reorder boxes
-  // var mainContainer = document.querySelector('div[data-test-id="convopane-resizable-grid"]');
-  // let contentContainers = Array.from(mainContainer.children);
-  // contentContainers.reverse();
-  // mainContainer.innerHTML = '';
-  // contentContainers.forEach((item) => {
-  //   mainContainer.appendChild(item);
-  // });
-  // Find the div element by its data-test-id attribute
   const listContainer = document.querySelector('div[role="log"]');
   let listItems = Array.from(listContainer.children);
   listItems = listItems.filter(

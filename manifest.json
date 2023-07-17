@@ -1,12 +1,12 @@
 {
     "manifest_version": 3,
     "name": "Zendesk Ticket Comments Reorder",
-    "version": "1.0",
+    "version": "0.1",
     "permissions": [
       "activeTab",
-      "scripting",
-      "storage"
+      "scripting"
     ],
+    "description": "Reorders Zendesk Ticket Comments so you can switch between ascending and descending order.",
     "host_permissions": [
       "http://*/*",
       "https://*/*"
@@ -15,12 +15,11 @@
       "default_popup": "popup.html",
       "default_icon": {
         "16": "images/icon16.png",
+        "19": "images/icon19.png",
+        "38": "images/icon38.png",
         "48": "images/icon48.png",
         "128": "images/icon128.png"
       }
-    },
-    "background": {
-      "service_worker": "background.js"
     }
   }
   
